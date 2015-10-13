@@ -7,21 +7,25 @@ var app = express();
 
 app.set('view engine', 'ejs');
 
+// note - parts of a url 
 // https://www.youtube.com/watch?v=dQw4w9WgXcQ
 // protocol: https
 // host: www.youtube.com
 // path: /watch
 // query string: ?v=dQw4w9WgXcQ
 
-// handle requests with routes
-
 
 // data
 var myAdjective = "awesome";
 
+
+// handle requests with ROUTES
+
 // anatomy of a route:
    // http verb, path, and what to do
-// GET request at '/'
+
+// route for GET request at '/'
+// localhost:5000/
 app.get('/', function(req, res){
 	// what to do when we see a request at this route
 	// res.send("Hi!");  //sends a string response
@@ -29,7 +33,10 @@ app.get('/', function(req, res){
 	res.render('index', { adjective: myAdjective }); // render an html template and send that
 });	
 
-/// zomg new comment
+// localhost:5000/about-me
+app.get('/about-me', function(req, res){
+	res.send("learn about me");
+});
 
 
 var port = 5000;
